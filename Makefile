@@ -6,7 +6,10 @@ export FLASK_APP=microblog.py
 export FLASK_ENV=development
 
 install-flask: ## Install necessary stuff: python3 python3-flask python3-pip ipython3
-	sudo apt install python3 python3-flask python3-pip ipython3
+	apt install python3 python3-flask python3-pip ipython3
+
+build-flask-docker: ## Build a docker image for this microblog
+	docker build --tag flask_microblog:1.0 .
 
 stop-microblog: ## stop microblog instance
 	@echo "TBD"
