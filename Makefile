@@ -5,6 +5,9 @@
 export FLASK_APP=microblog.py
 export FLASK_ENV=development
 
+install-flask: ## Install necessary stuff: python3 python3-flask python3-pip ipython3
+	sudo apt install python3 python3-flask python3-pip ipython3
+
 stop-microblog: ## stop microblog instance
 	@echo "TBD"
 	#$(MAKE) killall-flask &>/dev/null
