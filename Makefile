@@ -14,16 +14,16 @@ microblog-build: ## Build a docker image for this microblog
 	docker build --tag $(DOCKER_TAG) .
 
 microblog-down: ## Bring down microblog docker container (if running)
-	docker-compose down
+	docker-compose down --remove-orphans
 
-microblog-up: microblog-down microblog-build ## Bring up microblog docker container
+microblog-up: microblog-down microblog-build ## Bring up microblog docker container, builds first
 	docker-compose up -d --remove-orphans
 
-stop-microblog: ## stop microblog instance
+microblog-stop: ## stop microblog instance
 	@echo "TBD"
 	#$(MAKE) killall-flask &>/dev/null
 
-run-microblog: ## run the microblog flask application
+microblog-run: ## run the microblog flask application
 	flask run
 
 list-routes: ## Show the routes of microblog
