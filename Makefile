@@ -2,14 +2,22 @@
 
 # source: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 
+DOCKER_TAG=flask_microblog:1.0
+
 export FLASK_APP=microblog.py
 export FLASK_ENV=development
 
 install-flask: ## Install necessary stuff: python3 python3-flask python3-pip ipython3
 	apt install python3 python3-flask python3-pip ipython3
 
-build-flask-docker: ## Build a docker image for this microblog
-	docker build --tag flask_microblog:1.0 .
+microblog-build: ## Build a docker image for this microblog
+	docker build --tag $(DOCKER_TAG) .
+
+microblog-down: ## Bring down microblog docker container (if running)
+	docker-compose down
+
+microblog-up: microblog-down microblog-build ## Bring up microblog docker container
+	docker-compose up -d --remove-orphans
 
 stop-microblog: ## stop microblog instance
 	@echo "TBD"

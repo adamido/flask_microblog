@@ -9,6 +9,14 @@ RUN apt-get install -y make python3 python3-flask python3-pip ipython3
 
 COPY . .
 
-#RUN make run-microblog
+# not sure why these two are required!
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
+#
+ENV FLASK_APP=microblog.py
+ENV FLASK_ENV=development
+
+RUN flask run
 
 EXPOSE 5000
