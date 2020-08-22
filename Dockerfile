@@ -8,7 +8,3 @@ RUN apt-get update -y
 RUN apt-get install -y make python3 python3-flask python3-pip ipython3
 
 COPY . .
-
-#RUN make run-microblog
-
-EXPOSE 5000

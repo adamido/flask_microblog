@@ -1,0 +1,38 @@
+version: '3.1'
+services:
+  flask_microblog_1:
+    image: flask_microblog:1.0
+    hostname: flask_microblog1
+    container_name: flask_microblog_1
+    command: python3 -m flask run --host=0.0.0.0
+    ports:
+      - "127.0.0.1:5000:5000"
+    environment:
+      LC_ALL: C.UTF-8
+      LANG: C.UTF-8
+      FLASK_APP: microblog.py
+      FLASK_ENV: development
+  flask_microblog_2:
+    image: flask_microblog:1.0
+    hostname: flask_microblog_2
+    container_name: flask_microblog_2
+    command: python3 -m flask run --host=0.0.0.0
+    ports:
+      - "127.0.0.1:5001:5000"
+    environment:
+      LC_ALL: C.UTF-8
+      LANG: C.UTF-8
+      FLASK_APP: microblog.py
+      FLASK_ENV: development
+  flask_microblog_3:
+    image: flask_microblog:1.0
+    hostname: flask_microblog_3
+    container_name: flask_microblog_3
+    command: python3 -m flask run --host=0.0.0.0
+    ports:
+      - "127.0.0.1:5002:5000"
+    environment:
+      LC_ALL: C.UTF-8
+      LANG: C.UTF-8
+      FLASK_APP: microblog.py
+      FLASK_ENV: development
